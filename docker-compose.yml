@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  pokebot:
+    build: .
+    container_name: pokebot
+    restart: always
+    environment:
+      # Optional: add environment variables if needed
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./logs:/app/logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
